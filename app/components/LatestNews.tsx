@@ -1,13 +1,17 @@
 import Link from 'next/link';
 
 async function getLatestPosts() {
-    // ดึงข้อมูลจาก WordPress API เว็บจริงของคุณ (ไม่ต้องใช้ Token สำหรับการอ่านข้อมูลสาธารณะ)
-    const res = await fetch('https://pakmedgbo.online/wp-json/wp/v2/posts?per_page=3&_embed', {
-        next: { revalidate: 60 }, // Cache ไว้ 60 วินาที เพื่อความเร็ว
+    // ดึง URL จาก Environment Variable (ถ้าไม่มีให้ใช้ค่า Default เป็น api.pakmedgbo.online)
+    const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL || 'https://api.pakmedgbo.online';
+
+    const res = await fetch(`${apiUrl}/wp-json/wp/v2/posts?per_page=3&_embed`, {
+        next: { revalidate: 60 },
     });
 
     if (!res.ok) {
-        throw new Error('Failed to fetch posts');
+        // ถ้า Fetch ไม่ได้ ให้ Return อาเรย์ว่างๆ แทนที่จะ Error ตูมตาม (เพื่อให้ Build ผ่าน)
+        console.error('Failed to fetch posts:', res.statusText);
+        return [];
     }
 
     return res.json();
