@@ -1,0 +1,32 @@
+{
+  "title": "Clean Eating 101: The Ultimate Guide",
+  "content": "Description of the course generated from the E-book.",
+  "sections": [
+    {
+      "title": "Introduction to Clean Eating",
+      "lessons": [
+        {
+          "title": "What is Clean Eating?",
+          "content": "<p>Clean eating is about consuming whole foods...</p>"
+        },
+        {
+          "title": "Benefits of a Clean Diet",
+          "content": "<p>Improved energy, better sleep, and weight management...</p>"
+        }
+      ]
+    },
+    {
+      "title": "Getting Started",
+      "lessons": [
+        {
+          "title": "Pantry Makeover",
+          "content": "<p>Throw out processed foods and stock up on...</p>"
+        },
+        {
+          "title": "Reading Labels",
+          "content": "<p>How to spot hidden sugars and additives...</p>"
+        }
+      ]
+    }
+  ]
+}
